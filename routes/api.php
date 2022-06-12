@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::get('/products', function(){
+//     return "Yahoo";
+// });
+
+//using class, need to have namespace
+// Route::get('/products', [TestController::class,'index']);
+
+//by url
+// Route::get('/products', 'App\Http\Controllers\TestController@index');
+Route::post('/register', 'App\Http\Controllers\AuthController@register');
+
+Route::group(["middleware" => ["auth:sanctum"]], function () {
+    Route::get('/products', 'App\Http\Controllers\TestController@index');
 });
