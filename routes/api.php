@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*yes*/
+
 // Route::get('/products', function(){
 //     return "Yahoo";
 // });
